@@ -1,5 +1,6 @@
-FROM ubuntu:22.04
+FROM codercom/code-server:4.15.0-bullseye
 
+USER root
 WORKDIR /root/
 
 RUN apt-get update && apt-get install -y curl unzip
