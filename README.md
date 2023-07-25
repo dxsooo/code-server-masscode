@@ -1,16 +1,16 @@
 # Code-server-massCode
 
-This project is a dockerfile source for the image that intergates open vscode server, [massCode](https://masscode.io/) and its [extension for vscode](https://marketplace.visualstudio.com/items?itemName=AntonReshetov.masscode-assistant). Taking the advantage of massCode, the image can be deployed as a web IDE that can use customed code snippets.
+This project is a dockerfile source for the image that intergates open vscode server, [massCode](https://masscode.io/) and its extension for vscode([massCode Assistant](https://marketplace.visualstudio.com/items?itemName=AntonReshetov.masscode-assistant)). Taking the advantage of massCode, the image can be deployed as a web IDE that can use customed code snippets.
 
 ```mermaid
 flowchart BT
 subgraph Image
 	subgraph IDE
-		MassCodePlugin
+		MassCodePlugin[massCode Assistant]
 		VScode
 	end
-	MassCode-->MassCodePlugin
-	CodeSnippets((Code Snippets))-->MassCode
+	massCode-->MassCodePlugin[massCode Assistant]
+	CodeSnippets((Code Snippets))-->massCode
 end
 ```
 
