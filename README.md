@@ -14,7 +14,7 @@ subgraph Image
 end
 ```
 
-It is useful when you are a code snippet provider and you want to let your users code with eeb IDE. Or you get used to code in self-hosted web IDE on your cloud server and want to use managed code snippets.
+It is useful when you are a code snippet provider and you want to let your users code with web IDE. Or you get used to code in self-hosted web IDE on your cloud server and want to use managed code snippets.
 
 ## Usage
 
@@ -33,7 +33,7 @@ Deploy with:
 
 ```bash
 # replace the image with your own and mount your code path
-docker run -p8080:8080 -v{your_code_path}:/root/projects dxsooo/code-server-masscode:1.0
+docker run -p8080:8080 -v{your_code_path}:/root/projects -d dxsooo/code-server-masscode:1.0
 ```
 
 And the web IDE serves in: http://localhost:8080
