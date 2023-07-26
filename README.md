@@ -1,6 +1,6 @@
 # Code-server-massCode
 
-This project is a dockerfile source for the image that intergates open vscode server, [massCode](https://masscode.io/) and its extension for vscode([massCode Assistant](https://marketplace.visualstudio.com/items?itemName=AntonReshetov.masscode-assistant)). Taking the advantage of massCode, the image can be deployed as a web IDE that can use customed code snippets.
+This project is a dockerfile source for the image that intergates vscode server, [massCode](https://masscode.io/) and its extension for vscode([massCode Assistant](https://marketplace.visualstudio.com/items?itemName=AntonReshetov.masscode-assistant)). Taking the advantage of massCode, the image can be deployed as a web IDE that can use customed code snippets.
 
 ```mermaid
 flowchart BT
@@ -37,3 +37,7 @@ docker run -p8080:8080 -v{your_code_path}:/root/projects -d dxsooo/code-server-m
 ```
 
 And the web IDE serves in: http://localhost:8080
+
+## Thoughts
+
+Maybe there is another way to do this, such as following [snippet guide](https://code.visualstudio.com/api/language-extensions/snippet-guide) from vscode, pack the snippets to an extension and release it or pack it into web IDE image. But this would take cost to edit snippet jsons or migrate from massCode(or some other snippet management tools) to align to vscode snippets rules.
