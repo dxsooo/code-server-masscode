@@ -1,0 +1,9 @@
+FROM codercom/code-server:latest
+
+USER root
+
+COPY *.vsix .
+
+RUN code-server --install-extension AntonReshetov.masscode-assistant-1.1.0.vsix
+
+RUN rm *.vsix
