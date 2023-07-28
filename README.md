@@ -27,16 +27,16 @@ FROM dxsooo/code-server-masscode:1.0
 COPY massCode /root/massCode
 ```
 
-Or just add the COPY command into the [Dockerfile](./Dockerfile) and build your own image.
+Or just add the COPY command into the [Dockerfile](./Dockerfile) and build your own image. You should do more such as adding more extensions to make the IDE better for development.
 
 Deploy with:
 
 ```bash
 # replace the image with your own and mount your code path
-docker run -p8080:8080 -v{your_code_path}:/root/projects -d dxsooo/code-server-masscode:1.0
+docker run --name code-server -p8080:8080 -v{your_code_path}:/home/coder/projects -d dxsooo/code-server-masscode:1.0
 ```
 
-And the web IDE serves in: http://localhost:8080
+And the web IDE would serve in: http://localhost:8080 . See https://github.com/cdr/code-server for more docs.
 
 ## Thoughts
 
