@@ -17,10 +17,12 @@ RUN cd massCode && \
 FROM codercom/code-server:4.15.0-bullseye
 
 USER root
-RUN apt-get update && apt-get install -y libnotify4 libnss3 libxss1 xdg-utils libsecret-1-0
-
-RUN code-server --install-extension AntonReshetov.masscode-assistant
+RUN apt-get update && apt-get install -y libnotify4 libnss3 libxss1 xdg-utils libsecret-1-0 libasound2 libgbm1
 
 COPY --from=build /massCode/dist/masscode_3.7.0_amd64.deb /opt
 
 RUN dpkg -i /opt/masscode_3.7.0_amd64.deb
+
+USER coder
+COPY *.vsix /opt
+RUN code-server --install-extension /opt/AntonReshetov.masscode-assistant-1.1.0.vsix
