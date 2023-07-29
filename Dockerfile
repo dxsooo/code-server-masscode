@@ -14,10 +14,13 @@ RUN cd massCode && \
     pnpm install && \
     pnpm run build
 
-FROM codercom/code-server:4.15.0-bullseye
+FROM codercom/code-server:4.16.0-bullseye
 
 USER root
-RUN apt-get update && apt-get install -y libnotify4 libnss3 libxss1 xdg-utils libsecret-1-0 libasound2 libgbm1 xvfb
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends libnotify4 libnss3 libxss1 xdg-utils libsecret-1-0 libasound2 libgbm1 libgtk-3-0 libxtst6 libatspi2.0-0 xvfb && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
 
 COPY --from=build /massCode/dist/masscode_3.7.0_amd64.deb /opt
 
