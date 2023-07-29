@@ -14,12 +14,12 @@ subgraph Image
 end
 ```
 
-It is useful when you are a code snippet provider and you want to let your users code with web IDE. Or you get used to code in self-hosted web IDE on your cloud server and want to use managed code snippets.
+It is useful if you are a code snippet provider and you want to let your users code with web IDE. Or you get used to code in self-hosted web IDE on your cloud server and want to use managed code snippets. What you need to do is managing snippets with massCode. 
 
 ## Usage
 
 As the image built with the [Dockerfile](./Dockerfile) doesn't contain any code, you should take the image as base image and prepare 
-code snippets with massCode in your building machine. Copy the massCode folder (the folder is `/home/{your_name}/massCode` by default) to this project directory and your dockerfile may looks like:
+code snippets with massCode in your image building machine. Copy the massCode folder (the folder is `/home/{your_name}/massCode` by default) to this project directory and your dockerfile may looks like:
 
 ```dockerfile
 FROM dxsooo/code-server-masscode:1.0
@@ -27,7 +27,7 @@ FROM dxsooo/code-server-masscode:1.0
 COPY massCode /root/massCode
 ```
 
-Or just add the COPY command into the [Dockerfile](./Dockerfile) and build your own image. You should do more such as adding more extensions to make the IDE better for development.
+Or just add the COPY command into the [Dockerfile](./Dockerfile) and build your own image. You had better to do more such as adding more extensions to make the IDE better for development.
 
 Deploy with:
 
