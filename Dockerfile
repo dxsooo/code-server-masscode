@@ -14,7 +14,7 @@ RUN cd massCode && \
     pnpm install && \
     pnpm run build
 
-FROM codercom/code-server:4.16.0-bullseye
+FROM --platform=linux/amd64 codercom/code-server:4.16.0-bullseye
 
 USER root
 RUN apt-get update && \
